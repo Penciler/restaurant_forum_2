@@ -18,6 +18,11 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :category_id, "Catagory" %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, {class: "form-control"} %>
+      </div>
+
+      <div class="form-group">
         <%= f.label :tel, "Tel" %>
         <%= f.text_field :tel, class: "form-control" %>
       </div>
