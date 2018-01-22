@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   end
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :index]
+
+  resources :followships, only: [:create, :destroy]
 
 
   namespace :admin do
