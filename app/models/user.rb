@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader 
 
-  has_many :comments, dependent: :restrict_with_error
+  #has_many :comments, dependent: :restrict_with_error
+
+  has_many :comments, dependent: :destroy
 
   has_many :restaurants, through: :comments
 

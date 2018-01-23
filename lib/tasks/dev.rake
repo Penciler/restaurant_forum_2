@@ -20,7 +20,8 @@ namespace :dev do
       user_name = FFaker::Name.first_name
       User.create!(
         email: "#{user_name}@example.com",
-        password: "12345678"
+        password: "12345678",
+        name: user_name
       )
     end
     puts "have created fake users"
@@ -39,6 +40,16 @@ namespace :dev do
     end
     puts "have created fake comments"
     puts "now you have #{Comment.count} comment data"
+  end
+
+#help to delete user a....b
+  task help_delete_user: :environment do
+    for i in 4..23
+      ud=User.find(i)
+      ud.comments.destroy_all
+      ud.destroy
+    end
+    puts "user destroyed"
   end
 
 
