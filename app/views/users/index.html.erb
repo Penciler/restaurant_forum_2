@@ -34,6 +34,7 @@
         <%= link_to user_path(user) do %>
           <%= image_tag(user.avatar, class: "img-rounded") %>
           <h4><%= user.name %></h4>
+          <%= link_to 'Friend', friendships_path(following_id: user), method: :post %>
         <% end %>
 
         <%= render partial: "shared/follow", locals: {user: user} %>
