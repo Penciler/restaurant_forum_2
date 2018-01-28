@@ -41,5 +41,9 @@ class User < ApplicationRecord
   def friend?(user)
     self.friends.include?(user)
   end
+
+  def all_friends(user)
+    self.friends+self.invfriends
+  end
   
 end
