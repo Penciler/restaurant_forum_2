@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :friend_list]
  
   def show
     @commented_restaurants = @user.restaurants.uniq
@@ -32,6 +32,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :intro, :avatar)
+  end
+
+  def friend_list
+    @ffriends = @user.all_friends(@user)
   end
 
 end
