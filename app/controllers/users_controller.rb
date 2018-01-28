@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def friend_list
+    @ffriends = @user.all_friends(@user)
+  end
+
   private
 
   def set_user
@@ -34,8 +38,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :intro, :avatar)
   end
 
-  def friend_list
-    @ffriends = @user.all_friends(@user)
-  end
+
 
 end
