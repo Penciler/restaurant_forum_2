@@ -45,4 +45,8 @@ class RestaurantsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def about
+    @user_count = User.get_user_count
+  end
+
 end
