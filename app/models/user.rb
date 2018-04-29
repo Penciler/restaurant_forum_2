@@ -45,5 +45,12 @@ class User < ApplicationRecord
   def all_friends(user)
     self.friends+self.invfriends
   end
-  
+
+  def self.get_user_count
+    User.all.size
+  end
+
+  def get_comment_count
+    comments.all.size
+  end
 end
